@@ -1,11 +1,11 @@
 const wallet = 50
 
-const welcome = prompt("Welcome to the Keno game! Are you ready to play?")
-  if (welcome == 'yes') {
-    alert('Great!')
+const betNum = prompt("Welcome to the Keno game! You will start with $50, but could win up to $200! How much would you like to bet?")
+  if (betNum) {
+    alert(`Good luck!`)
   } 
 
-const pickNums = prompt("You will start with $50, but could win up to $200! Please choose one number from 1 to 15.")
+const pickNums = prompt("Please choose a number between 1 and 15.")
   if (pickNums) {
     alert(`You chose ${pickNums}.`)
   }
@@ -14,13 +14,25 @@ let winningNum = Math.floor(Math.random() * 10 + 5)
 
 
 if (pickNums == winningNum) {
-  alert(`The winning number is ${winningNum}. Congrats, you won $50! Pick another number.`)
+  alert(`The winning number is ${winningNum}. Congrats, you won!`)
 } else if (pickNums != winningNum) {
-  alert(`I'm sorry, the winning number is ${winningNum}. You did not win this round. Choose another number.`)
-} 
+  alert(`I'm sorry, the winning number is ${winningNum}. You did not win this round.`) 
+}
 
-const earnings = wallet + 50
 
 if (pickNums == winningNum) {
-  alert(`You now have $${earnings}`)
+  const moreEarnings = Number(wallet) + Number(betNum)
+  alert(`You now have $${moreEarnings}.`)
 }
+
+if (pickNums != winningNum) {
+  const lostEarnings = wallet - betNum
+  alert(`You now have $${lostEarnings}.`)
+}
+
+
+
+const cashOut = prompt("Want to play again?")
+  if (cashOut == 'yes' | 'Yes') {
+    alert('Great! Please pick another number.')
+  } 
