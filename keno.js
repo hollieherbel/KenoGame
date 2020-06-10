@@ -18,21 +18,24 @@ if (pickNums == winningNum) {
 } else if (pickNums != winningNum) {
   alert(`I'm sorry, the winning number is ${winningNum}. You did not win this round.`) 
 }
-
+const moreEarnings = Number(wallet) + Number(betNum)
+const lostEarnings = wallet - betNum
 
 if (pickNums == winningNum) {
-  const moreEarnings = Number(wallet) + Number(betNum)
   alert(`You now have $${moreEarnings}.`)
 }
 
 if (pickNums != winningNum) {
-  const lostEarnings = wallet - betNum
   alert(`You now have $${lostEarnings}.`)
 }
 
 
 
 const cashOut = prompt("Want to play again?")
-  if (cashOut == 'yes' | 'Yes') {
+  if (cashOut == 'yes' | 'Yes')  {
     alert('Great! Please pick another number.')
-  } 
+  } else if (cashOut != 'yes' | 'Yes' && pickNums == winningNum) {
+    alert(`Thanks for playing. You will go home with $${moreEarnings}.`)
+  } else if (cashOut != 'yes' | 'Yes' && pickNums != winningNum) {
+    alert(`Thanks for playing. You will go home with $${lostEarnings}.`)
+  }
